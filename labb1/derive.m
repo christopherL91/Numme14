@@ -1,3 +1,5 @@
+% This function will calculate the derivative of the function f.
+
 function [derivative] = derive( f, x, epsilon, precision)
     forward = @(a) (f(a + epsilon) - f(a))/epsilon;
     center = @(a) (f(a + epsilon) - f(a - epsilon))/(2*epsilon);

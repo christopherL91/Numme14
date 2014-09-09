@@ -30,17 +30,31 @@ clear
 
 % part d
 
-% f = flg2();
-% x = [0.2,1];
-% forward = [];
-% center = [];
-% tests = [1.E-3 1.E-4 1.E-5 1.E-6 1.E-7 1.E-8 1.E-9 1.E-10 1.E-11 1.E-12 1.E-13];
-% for h= tests
-%     forward = [forward;derive(f,x,h,1)];
-%     center = [center;derive(f,x,h,2)];
-% end
-% size(tests)
-% disp('Forward approximation');
-% disp(forward);
-% disp('Center approximation');
-% disp(center);
+f = flg2();
+f_ = @(x) 60-(6.*(x+(1./(10.*(x+1)))).^5 .* (1 - 1./(10.*(x+1).^2))) - 10.*exp(-x).*(1-x);
+x = [0.2,1];
+forward = [];
+forwarderr = [];
+center = [];
+centererr = [];
+tests = [1.E-3 1.E-4 1.E-5 1.E-6 1.E-7 1.E-8 1.E-9 1.E-10 1.E-11 1.E-12 1.E-13];
+for h= tests
+    fw = derive(f,x,h,1);
+    err = abs(f_(x) - fw);
+    forward = [forward; fw];
+    forwarderr = [forwarderr; err];
+    
+    fc = derive(f,x,h,2);
+    err = abs(f_(x) - fc);
+    center = [center;fc];
+    centererr = [centererr; err];
+end
+size(tests)
+disp('Values');
+disp(f(x));
+disp('Forward approximation');
+disp(forward);
+disp('Center approximation');
+disp(center);
+
+loglog(tests,forwarderr, 'red', tests, centererr, 'blue')
