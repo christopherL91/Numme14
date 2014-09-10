@@ -15,7 +15,6 @@ function result = raphsonJacobian(X,J_F,F,tolerance)
         h = J\B;
         X = X+h';        
     end
-    
     result = X;
 end
 
