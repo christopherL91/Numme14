@@ -15,8 +15,8 @@ J_F = @(x) [
            ];
 
 % Plot ranges
-y = -2:0.01:2.5;
-z = 0.2:0.01:1.7;
+y = -2.5:0.01:2.5;
+z = 0.001:0.0001:1.7;
 [Y,Z] = meshgrid(y,z);
 
 A = @(y,z) sin((-2.^y+z.^3)/3) + y.^2 + log10(z) - 3;
@@ -36,7 +36,7 @@ p3 = raphsonJacobian(guess3,J_F,F,1E-8)
 
 X = @(y,z) (-2^y + z^3)/3;
 
-guess4 = [X(2,0.9)  2   0.9];
+guess4 = [X(-2.5,0.001)  -2.5   0.001];
 p4 = raphsonJacobian(guess4,J_F,F,1E-8)
 
 phi = @(y,z) A(y,z).^2 + B(y,z).^2;
