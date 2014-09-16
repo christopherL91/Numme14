@@ -1,11 +1,11 @@
-function result = integrate_(low,high,func,intervalv)
+function result = integrate_(low,high,func,h)
 %This function will integrate a funtion from low to high using
 %numerical methods.
 % @ intervalv is an integer.
 % @ low and high is an integer.
-% Date: 15/9-14
-% This function is proved to be right...
-h = (high-low)/intervalv;
+% @ func is a function handler to the actual function to integrate.
+% @ h is the lenght of steps.
+intervalv = floor((high-low)/(h));
 result = zeros(1);
 for i = 1:intervalv
     current = low + (i-1)*h;
