@@ -16,16 +16,14 @@ plot(-x(phi),y(phi))
 [cx,cy] = createcircle([0,0], 1);
 plot(cx,cy);
 
-t = linspace(0,1)';
 Points = [1,0;1,0.73;0.12,0.89;0,0.5];
-res = bezier(t,Points);
-plot(res(:,1),res(:,2));
-plot(-res(:,1),res(:,2));
+[bx,by] = bezier(Points);
+plot(bx,by);
+plot(-bx,by);
 
 mouthPoints = [-0.6,-0.6;-0.3,-0.8;0.3,-0.8;0.6,-0.6];
-t2 = linspace(0,1)';
-mouth = bezier(t2,mouthPoints);
-plot(mouth(:,1),mouth(:,2));
+[mouthx,mouthy] = bezier(mouthPoints);
+plot(mouthx,mouthy);
 
 
 [eyex1, eyey1] = createcircle([0.5 0.2], 0.15);
