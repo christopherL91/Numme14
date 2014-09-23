@@ -5,7 +5,7 @@ Authors:
 Christopher Lillthors christopherL91@github.
 Viktor Kronvall considerate@github.
 
-LICENSEL:
+LICENSE:
 
 The MIT License (MIT)
 
