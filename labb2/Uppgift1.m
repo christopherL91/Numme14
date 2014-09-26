@@ -4,9 +4,7 @@ format LONG
 
 y = @(x) (exp(-x./3)./(2-cos(pi.*x)));
 y_squared = @(x) y(x).^2;
-volume = @(x) pi * integrate_(0,2.6,y_squared,x);
-
-%TODO What does it mean with the simpson value?
+volume = @(h) pi * integrate_(0,2.6,y_squared,h);
 
 disp('[Length == 0.1]');
 disp(volume(0.1));
@@ -18,6 +16,14 @@ disp('[Using quad]')
 temp = pi * integral(y_squared,0,2.6);
 disp(temp);
 
+x = linspace(0,2.6)';
+f = y(x);
+figure(1);
+plot(x,f);
 
-%TODO print out the 3d image.
-x = 0:(2*pi)/30:2*pi;
+phi = linspace(0,2*pi,30);
+X = x*ones(size(phi));
+Y = f*cos(phi);
+Z = f*sin(phi);
+figure(2);
+surfl(X,Y,Z);
