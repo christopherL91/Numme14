@@ -1,11 +1,24 @@
 \documentclass[xcolor=dvipsnames]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{bigfoot} % to allow verbatim in footnote
+\usepackage[numbered,framed]{matlab-prettifier}
 
+\newsavebox{\firstexample}
+\newsavebox{\secondexample}
 \setbeamercolor{frametitle}{fg=White}
 \setbeamercolor{title}{fg=White}
 \usetheme{lankton-keynote}
 \hypersetup{pdfstartview={Fit}}
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
 
 \author{Christopher Lillthors Viktor Kronvall}
 \title{Pilbågen}
@@ -13,8 +26,20 @@
 \begin{document}
 \maketitle
 \setbeamertemplate{frametitle}[default][center]
+
+%define MATLAB-code boxes.
+\begin{lrbox}{\firstexample}
+\lstinputlisting[caption = {findroot.m}]{../Labb3/findroot.m}
+\end{lrbox}
+
+\begin{lrbox}{\secondexample}
+\lstinputlisting[caption = {Sample code from Matlab}]{../Labb3/findroot.m}
+\end{lrbox}
+
 \begin{frame}
 \frametitle{Problem}
+%include the first box here.
+\usebox{\firstexample}
 %Present the problem here...
 \end{frame}
 \begin{frame}

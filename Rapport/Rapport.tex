@@ -16,11 +16,12 @@
 \usepackage{bbm}
 \usepackage{amssymb}
 \usepackage{wrapfig}
+\usepackage[numbered,framed]{matlab-prettifier}
 
 \title{Pilbåge}
 \author{
-  Viktor Kronvall \\
-  Christopher Lillthors \\
+  Viktor Kronvall %personnummer\\
+  Christopher Lillthors 911005-3817 \\
   \\
   Numeriska metoder SF1541
 }
@@ -28,11 +29,19 @@
 \setlength{\headheight}{54pt}
 \fancyfoot[C]{}
 \fancyfoot[RO, LE] {\thepage}
-\lhead{\textbf{Kungliga Tekniska Högskolan} \\ Datasektionen\\ Numeriska metoder}
+\lhead{\textbf{Kungliga Tekniska Högskolan} \\ Civilingenjör datateknik\\ Numeriska metoder SF1541}
 \rhead{\textbf{Projekt Pilbåge} \\ \date{\today} \\ \ \\}
 \setlength{\parindent}{0in}
 \setlength{\parskip}{0.1in}
 \date{\today}
+
+\lstMakeShortInline"
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
 
 \begin{document}
 \maketitle
@@ -49,11 +58,16 @@ Generated in \LaTeX
 \setcounter{page}{1}
 
 \section{Introduktion}
-
+Vi har tillsammans gjort en
 \section{Lösning}
 
 \section{Exempel}
 
 \section{Källkod}
+\begin{lstlisting}[caption = {Hello world}]
+for i = [1:10]
+  disp('hello world'); %Should print out hello world 10 times
+end
+\end{lstlisting}
 %include the source code here. Maybe URL to github?
 \end{document}
