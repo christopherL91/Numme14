@@ -7,6 +7,6 @@ function [s,xs,ys] = forenklad(a)
    f = @(t,u) [y_(t);-q*y(t)];
    u = [0.3 0];
    [xs, ys] = ode45(f, [0 a], u);
-   s = baglangd(xs,ys(:,2));
+   s = bage(xs,ys(:,1));
 end
 
