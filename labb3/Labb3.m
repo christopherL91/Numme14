@@ -47,11 +47,13 @@ plot([-xs(end), xs(end)], [0,0],'yellow');
 plot(xs,ys(:,1));
 plot(-xs,ys(:,1));
 
-%M = -q.*ys(:,1);
+%M = q.*(-ys(:,1));
 %S = M./-ys(:,1)
 S = q;
 disp('q = S =');
 disp(S);
+
+%Krökning = -qy(s)
 
 [ss,us]=utokad(q);
 plot(us(:,1),us(:,2),'red')
