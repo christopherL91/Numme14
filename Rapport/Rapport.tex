@@ -66,14 +66,14 @@ Generated in \LaTeX
 \setcounter{page}{1}
 %	Actual document begins here...
 \section{Problem}
-Det problem som löses i denna rapport är att bestämma vilken form en pilbåge skapad av en linjal och ett snöre får givet en differentialekvation och den kraft som verkar i bågsträngen.
+Det problem som löses i denna rapport är att bestämma vilken form en pilbåge skapad av en linjal och ett snöre får, givet en differentialekvation. Den kraft som verkar i bågsträngen söks även.
 
 Formen på pilbågen är symmetrisk och defineras av följande ekvation:
 \begin{equation} \label{eq:original}
 	\dfrac{d^2y}{dx^2} + qy + \left(1+\left(\dfrac{dy}{dx}\right)^2\right)^{3/2} = 0
 \end{equation}
 
-och dessa givna randvilkor: $y(0)=0.3,\: y'(0)=0,\: y(a)=0$ där pilbågen är definerad i punkterna $x \in [-a,a]$.
+och dessa givna randvilkor: $y(0)=0.3,\: y'(0)=0,\: y(a)=0$. Pilbågen är definerad i punkterna $x \in [-a,a]$.
 
 Pilbågens båglängd mellan $x=0$ och $x=a$ är dessutom definerad till att vara $0.5$m lång. Där båglängden $s$ beskrivs av ekvationen:
 \begin{equation}
@@ -94,7 +94,7 @@ Eftersom att $q$ är okänd så blir då ekvation ~\eqref{eq:original} ganska ko
 Detta kan vi göra eftersom derivatan $\left(\dfrac{dy}{dx}\right)^2$ är mycket liten
 inom intervallet.
 
-Denna differentialekvation löses sedan analytiskt genom att ansätta $y=e^{rx}$ där $r \in \mathbb{N}$
+Denna differentialekvation löses sedan analytiskt genom att ansätta $y=e^{rx}$ där $r \in \mathbb{R}$
 Detta ger den karaktäristiska ekvationen $e^{rx}(r^2+q)=0$ med röttterna $r=\pm \sqrt{q}\:i$.
 Med standardlösningar erhålles därigenom följande ekvationer:
 \begin{equation}
@@ -112,7 +112,7 @@ Insättning av begynnelsevärdena i ovanstående ekvationer ger:
 \end{equation}
 Dessutom följer sambandet $a=\dfrac{\pi}{2\sqrt{q}}$ ur ekvation ~\eqref{eq:y} då pilbågen kan antas vara icke-periodisk.
 
-Med hjälp av Matlab-rutinen \textit{ode45}, som använder sig av fjärde och femte ordningens Runge-Kuttametoder, löses ekvationerna ~\eqref{eq:y} och ~\eqref{eq:yprime} och båglängden för ett givet $q$ kan bestämmas.
+Med hjälp av Matlab-rutinen \textit{ode45}, som använder sig av fjärde och femte ordningens Runge-Kuttametoder, löses ekvationerna ~\eqref{eq:y} och ~\eqref{eq:yprime}. Därmed kan båglängden för ett givet $q$ bestämmas.
 
 Sekantmetoden används sedan för att finna det $q$ som motsvarar en båglängd på en halv meter. Det vill säga, en rot till f(s) = s-0.5 finnes.
 
@@ -138,7 +138,7 @@ Koden för detta kriterie är som följande:
 
 Följaktligen löses systemet återigen med sekantmetoden och det $q$ som ger en båglängd på en halv meter väljs.
 
-Den kraft som verkar i bågsträngen bestäms med hjälp av momentet i en punkt $M(x)$ som beskrivs enligt:
+Den kraft som verkar i bågsträngen bestäms med hjälp av momentet i en punkt, $M(x)$, som beskrivs enligt:
 \begin{equation}\label{eq:moment}
 M(x) = -qy(x)
 \end{equation}
@@ -164,11 +164,11 @@ Differentialen löses med \textit{ode45} och ett ekvationssystem med tre första
 
 \begin{align}
 \begin{tabular}{ l l }
-	$u_1 = x$ 					& $u_1' = \sqrt{1-(u_3)^2}$\\
+	$u_1 = x$ 					& $u_1' = \sqrt{1-\left(u_3\right)^2}$\\
 	& \\
 	$u_2 = y$ 					& $u_2' = u_3$\\
 	& \\
-	$u_3 = \dfrac{dy}{ds}$ 		& $u_3' = -qu_2\sqrt{1-(u_3)^2}$
+	$u_3 = \dfrac{dy}{ds}$ 		& $u_3' = -qu_2\sqrt{1-\left(u_3\right)^2}$
 \end{tabular}
 \nonumber
 \end{align}
